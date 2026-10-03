@@ -8,10 +8,10 @@
   "difficulty": 16.0,
   "extranonce1": "5a937af0",
   "extranonce2": "00000007",
-  "hashrate_mhs": 14.01,
-  "total_hashes_scanned": 40760771072,
+  "hashrate_mhs": 8.28,
+  "total_hashes_scanned": 40824771072,
   "shares_accepted": 0,
   "shares_rejected": 7,
-  "last_job_id": "3eb4",
-  "timestamp": 1790991958.4802718
+  "last_job_id": "3eb9",
+  "timestamp": 1790991965.990449
 }
