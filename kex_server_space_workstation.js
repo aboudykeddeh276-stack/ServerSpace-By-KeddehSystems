@@ -151,12 +151,13 @@ const server = http.createServer((req, res) => {
         // Enforce boundary to public/assets directory
         const blockName = url.pathname.replace('/opus/storage/', '');
         
-        // Native sparse file mapping to Google Drive
-        let payloadPath = path.join('/Users/ak/Library/CloudStorage/GoogleDrive-aboudykeddeh276@gmail.com/My Drive/KEX_SYSTEM', blockName);
+        // Explicit 100TB Sparse Asset Authorization
+        const SPARSENAME = 'KEX_100TB_STORAGE.sparseimage';
+        let payloadPath = path.join('/Users/ak/Library/CloudStorage/GoogleDrive-aboudykeddeh276@gmail.com/My Drive/KEX_SYSTEM', SPARSENAME);
         
-        // Fallback to the other Google Drive account if not found
+        // Fallback safety (if moved)
         if (!fs.existsSync(payloadPath)) {
-            payloadPath = path.join('/Users/ak/Library/CloudStorage/GoogleDrive-keddeh.servers@gmail.com/My Drive', blockName);
+            payloadPath = path.join('/Users/ak/Library/CloudStorage/GoogleDrive-keddeh.servers@gmail.com/My Drive/KEX_SYSTEM', SPARSENAME);
         }
 
         return serveOpusStorage(req, res, payloadPath);
