@@ -121,7 +121,16 @@ function serveOpusStorage(req, res, filePath) {
 const server = http.createServer((req, res) => {
 
     // Deploy constraint: Enable secure cross-origin streaming for the sovereign HTML carrier
-    res.setHeader('Access-Control-Allow-Origin', 'https://runtime.keddeh.com');
+    
+    // Allow any keddeh.com subdomain to stream from this backend
+    const origin = req.headers.origin;
+    if (origin && (origin.endsWith('.keddeh.com') || origin === 'https://keddeh.com')) {
+        res.setHeader('Access-Control-Allow-Origin', origin);
+    } else {
+        // Fallback for local testing or unmapped edge carriers
+        res.setHeader('Access-Control-Allow-Origin', 'https://runtime.keddeh.com');
+    }
+
     res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Range, Content-Type');
     res.setHeader('Access-Control-Expose-Headers', 'Content-Range, Accept-Ranges, Content-Length');
