@@ -7,11 +7,11 @@
   "socket_status": "AUTHORIZED",
   "difficulty": 16.0,
   "extranonce1": "5a937af0",
-  "extranonce2": "00000003",
-  "hashrate_mhs": 9.76,
-  "total_hashes_scanned": 18380901888,
+  "extranonce2": "00000007",
+  "hashrate_mhs": 14.01,
+  "total_hashes_scanned": 40760771072,
   "shares_accepted": 0,
-  "shares_rejected": 3,
-  "last_job_id": "2076",
-  "timestamp": 1790989381.924633
+  "shares_rejected": 7,
+  "last_job_id": "3eb4",
+  "timestamp": 1790991958.4802718
 }
