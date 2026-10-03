@@ -119,6 +119,18 @@ function serveOpusStorage(req, res, filePath) {
 
 // ─── UNIFIED HTTP DAEMON ────────────────────────────────────────────────────
 const server = http.createServer((req, res) => {
+
+    // Deploy constraint: Enable secure cross-origin streaming for the sovereign HTML carrier
+    res.setHeader('Access-Control-Allow-Origin', 'https://runtime.keddeh.com');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, HEAD, OPTIONS');
+    res.setHeader('Access-Control-Allow-Headers', 'Range, Content-Type');
+    res.setHeader('Access-Control-Expose-Headers', 'Content-Range, Accept-Ranges, Content-Length');
+
+    if (req.method === 'OPTIONS') {
+        res.writeHead(204);
+        return res.end();
+    }
+
     requestCount++;
     const url = new URL(req.url || '/', `http://127.0.0.1:${PORT}`);
 
