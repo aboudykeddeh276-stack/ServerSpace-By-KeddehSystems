@@ -1,0 +1,62 @@
+{
+  "schema": "layna.deployment.v1",
+  "organization": "Layna Community Care",
+  "child_brand": "Layna Care",
+  "publication": {
+    "domain": "UNASSIGNED_PENDING_VERIFICATION",
+    "public_branding_only": [
+      "Layna Community Care",
+      "Layna Care"
+    ],
+    "forbidden_attribution": [
+      "ChatGPT",
+      "OpenAI",
+      "KEDDEH Systems",
+      "BRAINK",
+      "KEX"
+    ]
+  },
+  "services": [
+    {
+      "name": "public-site",
+      "port": 8080,
+      "health": "/health",
+      "entry": "src/server.py"
+    },
+    {
+      "name": "operations-console",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "name": "documents",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "name": "workstations",
+      "desired": 5,
+      "status": "NOT_PROVISIONED"
+    },
+    {
+      "name": "hypervisors",
+      "status": "NOT_PROVISIONED"
+    }
+  ],
+  "deployment": {
+    "environment": "existing-owner-hosting",
+    "authoritative_dns": "staged",
+    "tls": "verification_required",
+    "artifact_sha256": "bc2f9246d939b44406368aac1bde687b118f3161846889236c29e89c0cd7be51",
+    "artifact_name": "KEDDEH_LCC_EXPORT_20261020.zip",
+    "host_boot_receipt": "pending",
+    "network_probe": "pending"
+  },
+  "rollout": [
+    "upload artifact",
+    "verify SHA256",
+    "launch HTTP application",
+    "check health",
+    "verify DNS authority",
+    "verify HTTPS and routes",
+    "commit receipts"
+  ]
+}
